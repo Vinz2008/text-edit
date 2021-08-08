@@ -15,8 +15,7 @@ root.columnconfigure(0, weight=1)
 root.rowconfigure(0, weight=1)
 icon = ImageTk.PhotoImage(Image.open('Notepad.png'))
 root.iconphoto(False, icon)
-root.update()
-root.mainloop()
+
 
 def open_file():
    file = fd.askopenfilename(defaultextension='.txt', filetypes=[('All Files', '*.*'), ("Text File", "*.txt*"),("Python file", "*.py*")])
@@ -106,3 +105,5 @@ scroller = Scrollbar(text_area, orient=VERTICAL)
 scroller.pack(side=RIGHT, fill=Y)
 scroller.config(command=text_area.yview)
 text_area.config(yscrollcommand=scroller.set)
+root.update()
+root.mainloop()

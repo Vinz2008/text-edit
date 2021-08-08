@@ -39,7 +39,7 @@ def save_file():
        file.close()
    if file is None:
        file = fd.asksaveasfilename(initialfile='Untitled.txt', defaultextension='.txt',
-                                   filetypes=[("Text File", "*.txt*"), ("Word Document", '*,docx*'), ("PDF", "*.pdf*")])
+                                   filetypes=[("Text File", "*.txt*"), ("Word Document", '*,docx*'), ("PDF", "*.pdf*"), (" Python file", "*.py*")])
    else:
        file = open(file, "w")
        file.write(text_area.get(1.0, END))

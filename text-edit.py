@@ -58,7 +58,7 @@ def select_all():
 def delete_last_char():
    text_area.event_generate("<<KP_Delete>>")
 def about_notepad():
-   mb.showinfo("About Notepad", "This is just another Notepad, but this is better than all others")
+   mb.showinfo("About TextEdit", "This is just another text editor")
 def about_commands():
    commands = """
 Under the File Menu:

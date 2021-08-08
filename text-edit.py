@@ -16,7 +16,7 @@ root.rowconfigure(0, weight=1)
 icon = ImageTk.PhotoImage(Image.open('Notepad.png'))
 root.iconphoto(False, icon)
 def open_file():
-   file = fd.askopenfilename(defaultextension='.txt', filetypes=[('All Files', '*.*'), ("Text File", "*.txt*")])
+   file = fd.askopenfilename(defaultextension='.txt', filetypes=[('All Files', '*.*'), ("Text File", "*.txt*"),(Python file", "*.py*")])
    if file != '':
        root.title(f"{os.path.basename(file)}")
        text_area.delete(1.0, END)
@@ -26,7 +26,7 @@ def open_file():
    else:
        file = None
 def open_new_file():
-   root.title("Untitled - Notepad")
+   root.title("TextEdit")
    text_area.delete(1.0, END)
 def save_file():
    global text_area

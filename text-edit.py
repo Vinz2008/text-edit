@@ -15,6 +15,9 @@ root.columnconfigure(0, weight=1)
 root.rowconfigure(0, weight=1)
 icon = ImageTk.PhotoImage(Image.open('Notepad.png'))
 root.iconphoto(False, icon)
+root.update()
+root.mainloop()
+
 def open_file():
    file = fd.askopenfilename(defaultextension='.txt', filetypes=[('All Files', '*.*'), ("Text File", "*.txt*"),(Python file", "*.py*")])
    if file != '':
@@ -73,5 +76,25 @@ Under the Edit Menu:
 - 'Delete' deletes the last character 
 """
    mb.showinfo(title="All commands", message=commands, width=60, height=40)
-root.update()
-root.mainloop()
+
+menu_bar = Menu(root)
+file_menu = Menu(menu_bar, tearoff=False, activebackground='DodgerBlue')
+file_menu.add_command(label="New", command=open_new_file)
+file_menu.add_command(label="Open File", command=open_file)
+file_menu.add_command(label="Save As", command=save_file)
+file_menu.add_separator()
+file_menu.add_command(label="Close File", command=exit_application)
+menu_bar.add_cascade(label="File", menu=file_menu)
+edit_menu = Menu(menu_bar, tearoff=False, activebackground='DodgerBlue')
+edit_menu.add_command(label='Copy', command=copy_text)
+edit_menu.add_command(label='Cut', command=cut_text)
+edit_menu.add_command(label='Paste', command=paste_text)
+edit_menu.add_separator()
+edit_menu.add_command(label='Select All', command=select_all)
+edit_menu.add_command(label='Delete', command=delete_last_char)
+menu_bar.add_cascade(label="Edit", menu=edit_menu)
+help_menu = Menu(menu_bar, tearoff=False, activebackground='DodgerBlue')
+help_menu.add_command(label='About TextEdit', command=about_notepad)
+help_menu.add_command(label='About Commands', command=about_commands)
+menu_bar.add_cascade(label="Help", menu=help_menu)
+root.config(menu=menu_bar)

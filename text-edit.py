@@ -98,3 +98,11 @@ help_menu.add_command(label='About TextEdit', command=about_notepad)
 help_menu.add_command(label='About Commands', command=about_commands)
 menu_bar.add_cascade(label="Help", menu=help_menu)
 root.config(menu=menu_bar)
+
+
+text_area = Text(root, font=("Times New Roman", 12))
+text_area.grid(sticky=NSEW)
+scroller = Scrollbar(text_area, orient=VERTICAL)
+scroller.pack(side=RIGHT, fill=Y)
+scroller.config(command=text_area.yview)
+text_area.config(yscrollcommand=scroller.set)

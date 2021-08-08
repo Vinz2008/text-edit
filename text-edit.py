@@ -19,7 +19,7 @@ root.update()
 root.mainloop()
 
 def open_file():
-   file = fd.askopenfilename(defaultextension='.txt', filetypes=[('All Files', '*.*'), ("Text File", "*.txt*"),(Python file", "*.py*")])
+   file = fd.askopenfilename(defaultextension='.txt', filetypes=[('All Files', '*.*'), ("Text File", "*.txt*"),("Python file", "*.py*")])
    if file != '':
        root.title(f"{os.path.basename(file)}")
        text_area.delete(1.0, END)
@@ -42,7 +42,7 @@ def save_file():
        file.close()
    if file is None:
        file = fd.asksaveasfilename(initialfile='Untitled.txt', defaultextension='.txt',
-                                   filetypes=[("Text File", "*.txt*"), ("Word Document", '*,docx*'), ("PDF", "*.pdf*"), (" Python file", "*.py*")])
+                                   filetypes=[("Text File", "*.txt*"), ("Word Document", '*,docx*'), ("PDF", "*.pdf*"), ("Python file", "*.py*")])
    else:
        file = open(file, "w")
        file.write(text_area.get(1.0, END))
